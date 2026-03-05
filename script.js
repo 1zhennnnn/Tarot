@@ -121,7 +121,7 @@ async function askAIForSpread() {
     recommendReason.innerText = "✨ 正在為您分析最適合的牌陣...";
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/recommend_spread', {
+        const response = await fetch('/api/recommend_spread', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ question: question })
@@ -451,7 +451,7 @@ async function callAIInterpretation() {
     };
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/interpret', {
+        const response = await fetch('/api/interpret', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
