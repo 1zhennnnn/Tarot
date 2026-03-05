@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>靈魂占卜師</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="magic-canvas" class="magic-canvas"></canvas>
+    <div class="container">
+        <div class="title-block">
+            <div class="subtitle">Arcane Tarot Ritual</div>
+            <h1>靈魂占卜師</h1>
+        </div>
+
+        <div id="setup-stage" class="stage">
+            <textarea id="user-question" placeholder="請輸入你想問的問題...例如：未來的職涯發展？"></textarea>
+            
+            <div class="ai-recommend-box">
+                <button onclick="askAIForSpread()" class="btn-secondary">✨ AI 推薦牌陣</button>
+                <p id="recommend-reason" class="hint-text"></p>
+            </div>
+            
+            <div class="spread-options">
+                <button onclick="startDrawing('single')">單牌啟示</button>
+                <button onclick="startDrawing('triangle')">聖三角</button>
+                <button onclick="startDrawing('timeflow')">時間之流</button>
+                <button onclick="startDrawing('core_analysis')">直指核心</button>
+                <button onclick="startDrawing('choice')">二選一</button>
+                <button onclick="startDrawing('universal')">萬用牌陣</button>
+            </div>
+        </div>
+
+        <div id="draw-stage" class="stage hidden">
+
+            <!-- 頂部狀態列 -->
+            <div class="spread-header">
+                <div class="ritual-pill">
+                    <span id="active-spread-name">載入中...</span>
+                    <span class="pill-sep">•</span>
+                    <span id="step-number">STEP 1</span>
+                    <span class="pill-sep">•</span>
+                    <span id="position-description">準備抽取第一張牌...</span>
+                </div>
+            </div>
+
+            <!-- 上下排列：牌陣在上，抽牌在下 -->
+            <div id="slots-container" class="slots-grid"></div>
+
+            <div class="draw-deck">
+                <div id="deck-container"></div>
+                <div class="draw-counter">
+                    已抽取 <span id="current-count">0</span> / <span id="target-count">0</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="result-stage" class="stage hidden">
+            <div id="result-area" class="result-grid"></div>
+
+            <div class="ai-interpretation-box">
+                <h3>靈魂深度解析</h3>
+                <div id="ai-loading" class="hidden">🔮 占卜師正在連結靈魂意識...</div>
+                <div id="ai-response" class="typewriter"></div>
+            </div>
+
+            <button onclick="restart()" class="btn-restart">重新占卜</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
