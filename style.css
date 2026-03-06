@@ -23,6 +23,7 @@ body {
     align-items: center;
     padding: 40px 20px;
     min-height: 100vh;
+    overflow-x: hidden; /* 防止橫向溢出造成偏移 */
 }
 
 /* 抽牌模式：縮減外邊距，讓畫面能在不滾動的情況下完成 */
@@ -542,8 +543,21 @@ button:active {
 
 /* ── 響應式：手機版 ── */
 @media (max-width: 680px) {
-    body.drawing-mode { padding: 8px 10px; }
-    .slots-grid { zoom: 0.88; }
+    body { padding: 20px 10px; }
+    body.drawing-mode { padding: 8px 8px; }
+
+    .container { padding: 18px 14px 20px; }
+    .container.drawing-mode { padding: 12px 12px 16px; }
+
+    /* 牌陣格位縮小，防止橫向溢出 */
+    .slots-grid { zoom: 0.78; }
+
+    /* 縮短牌扇半徑，防止牌超出螢幕（搭配 JS 縮角度） */
+    .card-back { transform-origin: center 260px; }
+
+    /* 牌扇容器不讓溢出內容造成偏移 */
+    #deck-container { overflow: hidden; }
+
     .card-img-wrapper { width: 110px; }
     .spread-options { grid-template-columns: repeat(2, 1fr); }
 }
