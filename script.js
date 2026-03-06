@@ -298,7 +298,7 @@ function fanOutDeck(cards) {
     const total = cards.length;
     if (!total) return;
     const isMobile = window.innerWidth <= 680;
-    const maxAngle = isMobile ? 55 : 90;
+    const maxAngle = isMobile ? 70 : 90;
     cards.forEach((card, index) => {
         const t = total === 1 ? 0.5 : index / (total - 1);
         const angle = (t - 0.5) * maxAngle;

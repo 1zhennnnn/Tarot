@@ -552,8 +552,13 @@ button:active {
     /* 牌陣格位縮小，防止橫向溢出 */
     .slots-grid { zoom: 0.78; }
 
-    /* 縮短牌扇半徑，防止牌超出螢幕（搭配 JS 縮角度） */
-    .card-back { transform-origin: center 260px; }
+    /* 縮短牌扇半徑，縮小牌尺寸讓牌更好點擊（搭配 JS 縮角度） */
+    .card-back {
+        width: 68px;
+        height: 109px;
+        margin-left: -34px;
+        transform-origin: center 230px;
+    }
 
 
     .card-img-wrapper { width: 110px; }
