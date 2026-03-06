@@ -555,8 +555,6 @@ button:active {
     /* 縮短牌扇半徑，防止牌超出螢幕（搭配 JS 縮角度） */
     .card-back { transform-origin: center 260px; }
 
-    /* 牌扇容器不讓溢出內容造成偏移 */
-    #deck-container { overflow: hidden; }
 
     .card-img-wrapper { width: 110px; }
     .spread-options { grid-template-columns: repeat(2, 1fr); }
