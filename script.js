@@ -241,7 +241,9 @@ function startDrawing(key) {
 function initDeck() {
     const deckContainer = document.getElementById('deck-container');
     deckContainer.innerHTML = ''; 
-    for (let i = 0; i < 78; i++) {
+    const isMobile = window.innerWidth <= 680;
+    const cardCount = isMobile ? 28 : 78;
+    for (let i = 0; i < cardCount; i++) {
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card-back';
         cardDiv.style.transform = 'rotate(0deg)';
